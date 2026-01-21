@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard RedDrink{% endblock %}
+
+{% block content %}
+    <nav>
+       {% if current_user.is_authenticated %}
+         <h1>Hello, {{ current_user.username }}</h1>
+         <a href="{{ url_for('main.logout') }}">Logout</a>
+       {% else %}
+         <a href="{{ url_for('main.login') }}">Login</a>
+         <a href="{{ url_for('main.register') }}">Register</a>
+       {% endif %}
+     </nav>
+{% endblock %}
